@@ -1,16 +1,16 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-module.exports = {
-  output: "standalone",
+const nextConfig = {
+  output: "standalone", // Включает standalone-режим для деплоя
   typescript: {
-    ignoreBuildErrors: true, // Игнорирует ошибки TypeScript
+    ignoreBuildErrors: true, // Игнорируем ошибки TS
   },
   eslint: {
-    ignoreDuringBuilds: true, // Игнорирует ошибки ESLint при билде
+    ignoreDuringBuilds: true, // Игнорируем ошибки ESLint
   },
 };
+
+module.exports = nextConfig; // Убираем `export default`
+
 
 export default nextConfig;

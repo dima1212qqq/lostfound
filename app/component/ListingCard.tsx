@@ -29,7 +29,7 @@ export function ListingCard({ listing }: ListingCardProps) {
         async function fetchImages() {
             try {
                 const response = await axios.get(
-                    `https://dima1212qqq-lostfounsback-3344.twc1.net/api/listings/${listing.id}/images`
+                    `http://api.24lostandfound.ru/api/listings/${listing.id}/images`
                 );
                 const images: ListingImage[] = response.data;
                 if (images && images.length > 0) {

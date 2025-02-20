@@ -38,7 +38,7 @@ export function NavUser({
   const isAuthenticated = !!user;
   async function logout() {
     try {
-      await axios.post("https://dima1212qqq-lostfounsback-3344.twc1.net/api/auth/logout", {}, { withCredentials: true });
+      await axios.post("http://api.24lostandfound.ru/api/auth/logout", {}, { withCredentials: true });
     } catch (error) {
       console.error("Ошибка при выходе:", error);
     } finally {

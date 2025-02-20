@@ -34,7 +34,7 @@ export function NavHome() {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await axios.get("https://dima1212qqq-lostfounsback-3344.twc1.net/api/categories");
+        const response = await axios.get("http://api.24lostandfound.ru/api/categories");
         console.log("Полученные категории:", response.data);
       } catch (error) {
         console.error("Ошибка загрузки категорий:", error);

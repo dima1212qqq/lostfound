@@ -43,7 +43,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           return;
         }
 
-        const response = await axios.get("https://dima1212qqq-lostfounsback-3344.twc1.net/api/auth/me", {
+        const response = await axios.get("http://api.24lostandfound.ru/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData(response.data);
@@ -61,7 +61,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   React.useEffect(() => {
     async function fetchCities() {
       try {
-        const response = await axios.get("https://dima1212qqq-lostfounsback-3344.twc1.net/api/city");
+        const response = await axios.get("http://api.24lostandfound.ru/api/city");
         const fetchedCities: CityData[] = response.data.map((city: City) => ({
           name: city.name,
           logo: Home, // Иконка города

@@ -45,7 +45,7 @@ export function ListingFormDialog({ type }: ListingFormDialogProps) {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await axios.get("https://dima1212qqq-lostfounsback-3344.twc1.net/api/categories");
+        const response = await axios.get("https://http://api.24lostandfound.ru/dima1212qqq-lostfounsback-3344.twc1.net/api/categories");
         setCategories(response.data);
       } catch (error) {
         console.error("Ошибка загрузки категорий:", error);
@@ -80,7 +80,7 @@ export function ListingFormDialog({ type }: ListingFormDialogProps) {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.post("https://dima1212qqq-lostfounsback-3344.twc1.net/api/listings", formData, {
+      const response = await axios.post("http://api.24lostandfound.ru/api/listings", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           ...(token && { Authorization: `Bearer ${token}` }),

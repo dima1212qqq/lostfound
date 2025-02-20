@@ -29,7 +29,7 @@ export function CategoryCarousel({ title, categoryLink }: CategoryCarouselProps)
       setLoading(true);
       try {
         const selectedCity = localStorage.getItem("selectedCity") || "";
-        const url = `http://192.168.0.192:8080/api/categories/${categoryLink}/${activeStatus}?city=${encodeURIComponent(selectedCity)}`;
+        const url = `https://dima1212qqq-lostfounsback-3344.twc1.net/api/categories/${categoryLink}/${activeStatus}?city=${encodeURIComponent(selectedCity)}`;
         const response = await axios.get(url);
         setListings(response.data);
       } catch (error) {

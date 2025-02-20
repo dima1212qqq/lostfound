@@ -47,9 +47,9 @@ export function LoginForm({
       let payload: any = { username, password };
 
       if (activeTab === "login") {
-        endpoint = "http://192.168.0.192:8080/api/auth/login";
+        endpoint = "https://dima1212qqq-lostfounsback-3344.twc1.net/api/auth/login";
       } else if (activeTab === "register") {
-        endpoint = "http://192.168.0.192:8080/api/auth/register";
+        endpoint = "https://dima1212qqq-lostfounsback-3344.twc1.net/api/auth/register";
         payload.email = email;
         payload.otp = otpValue;
       }
@@ -74,7 +74,7 @@ export function LoginForm({
   const sendOtp = async () => {
     try {
         console.log(email);
-        await axios.post("http://192.168.0.192:8080/api/auth/send-otp", null, {
+        await axios.post("https://dima1212qqq-lostfounsback-3344.twc1.net/api/auth/send-otp", null, {
             params: { email }
         });
         setOtpSent(true);

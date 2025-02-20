@@ -29,7 +29,7 @@ export function ListingCard({ listing }: ListingCardProps) {
         async function fetchImages() {
             try {
                 const response = await axios.get(
-                    `http://192.168.0.192:8080/api/listings/${listing.id}/images`
+                    `https://dima1212qqq-lostfounsback-3344.twc1.net/api/listings/${listing.id}/images`
                 );
                 const images: ListingImage[] = response.data;
                 if (images && images.length > 0) {

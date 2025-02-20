@@ -42,7 +42,7 @@ export function CitySelectionGuard({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     async function fetchCities() {
       try {
-        const response = await axios.get("http://192.168.0.192:8080/api/city");
+        const response = await axios.get("https://dima1212qqq-lostfounsback-3344.twc1.net/api/city");
         const fetchedCities: CityData[] = response.data.map((city: City) => ({
           name: city.name,
           logo: Home, // используем иконку Home

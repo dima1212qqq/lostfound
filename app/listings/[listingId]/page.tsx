@@ -47,12 +47,12 @@ export default function ListingDetailPage() {
     async function fetchData() {
       try {
         const listingResponse = await axios.get<Listing>(
-          `http://192.168.0.192:8080/api/listings/${listingId}`
+          `https://dima1212qqq-lostfounsback-3344.twc1.net/api/listings/${listingId}`
         );
         setListing(listingResponse.data);
 
         const imagesResponse = await axios.get<ListingImage[]>(
-          `http://192.168.0.192:8080/api/listings/${listingId}/images`
+          `https://dima1212qqq-lostfounsback-3344.twc1.net/api/listings/${listingId}/images`
         );
         setImages(imagesResponse.data);
       } catch (error) {

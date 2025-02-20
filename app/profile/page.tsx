@@ -24,7 +24,7 @@ export default function ProfilePage() {
     // Перенесли `fetchUserData` внутрь `useEffect`
     const fetchUserData = async () => {
       try {
-        const response = await axios.get<UserData>("http://192.168.0.192:8080/api/auth/me", {
+        const response = await axios.get<UserData>("https://dima1212qqq-lostfounsback-3344.twc1.net/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData(response.data);

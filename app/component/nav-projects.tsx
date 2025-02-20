@@ -82,7 +82,7 @@ export function NavProjects() {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await axios.get("http://192.168.0.192:8080/api/categories");
+        const response = await axios.get("https://dima1212qqq-lostfounsback-3344.twc1.net/api/categories");
         console.log("Полученные категории:", response.data);
         const categories: Category[] = response.data;
         const transformed = transformCategories(categories);

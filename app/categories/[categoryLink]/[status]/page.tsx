@@ -48,7 +48,7 @@ export default function CategoryStatusPage() {
       const token = localStorage.getItem("token");
       try {
         const selectedCity = localStorage.getItem("selectedCity") || "";
-        const url = `http://192.168.0.192:8080/api/categories/${categoryLink}/${status}?city=${encodeURIComponent(
+        const url = `https://dima1212qqq-lostfounsback-3344.twc1.net/api/categories/${categoryLink}/${status}?city=${encodeURIComponent(
           selectedCity
         )}&page=${page}&size=10`;
         const response = await axios.get(url, {

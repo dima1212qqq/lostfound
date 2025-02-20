@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight, type LucideIcon } from "lucide-react"
-
+import { JSX } from "react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -32,15 +32,17 @@ interface Category {
 export interface NavItem {
   title: string;
   url: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon | JSX.Element;
   isActive?: boolean;
   items: NavItem[];
 }
 
+
 // Функция для преобразования плоского списка категорий в иерархическую структуру
-const ImageIcon = ({ src, alt }: { src: string; alt: string }) => (
+const ImageIcon: React.FC<{ src: string; alt: string }> = ({ src, alt }) => (
   <img src={src} alt={alt} className="h-5 w-5 object-contain" />
 );
+
 
 function transformCategories(categories: Category[]): NavItem[] {
   const categoryMap: { [key: number]: NavItem } = {};
@@ -51,15 +53,14 @@ function transformCategories(categories: Category[]): NavItem[] {
     categoryMap[cat.id] = {
       title: cat.name,
       url: `/categories/${cat.link}/found`, // можно настроить URL по необходимости
-      icon: cat.imageUrl ? () => <ImageIcon src={cat.imageUrl} alt={cat.name} /> : undefined,
+      icon: cat.imageUrl ? <ImageIcon src={cat.imageUrl || ""} alt={cat.name} /> : undefined,
       items: [],
     };
   });
 
   // Организуем иерархию
   categories.forEach((cat) => {
-    // Если у категории есть родитель (здесь предполагаем, что в API родитель передается в виде объекта с полем id)
-    // Если ваша модель отличается, измените условие соответственно.
+  
     if ((cat as any).parent && (cat as any).parent.id) {
       const parentId = (cat as any).parent.id;
       const parent = categoryMap[parentId];
@@ -72,7 +73,7 @@ function transformCategories(categories: Category[]): NavItem[] {
       navItems.push(categoryMap[cat.id]);
     }
   });
-  
+
   return navItems;
 }
 export function NavProjects() {
@@ -108,12 +109,17 @@ export function NavProjects() {
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon className="h-5 w-5" />}
+                  {typeof item.icon === "function" ? (
+                    <item.icon className="h-5 w-5" />
+                  ) : (
+                    item.icon // Рендерим картинку, если это не LucideIcon
+                  )}
                   <a href={item.url}>
-                          <span>{item.title}</span>
-                        </a>
+                    <span>{item.title}</span>
+                  </a>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-100" />
                 </SidebarMenuButton>
+
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>

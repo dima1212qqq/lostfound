@@ -6,14 +6,6 @@ import axios from "axios";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/app/component/app-sidebar";
 import { Separator } from "@/components/ui/separator";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import ListingCard from "@/app/component/ListingCard";
 import { SearchBar } from "@/app/component/SearchBar";
 
@@ -105,7 +97,6 @@ export default function CategoryStatusPage() {
   }, [loading, hasMore]);
 
   const currentCategory = uniqueListings.length > 0 ? uniqueListings[0].category : null;
-  const parentCategory = currentCategory?.parent;
 
   return (
     <SidebarProvider>

@@ -27,11 +27,6 @@ export function LightboxCarousel({ images, listingTitle, onClose }: LightboxCaro
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
-    const maybeUnsubscribe = api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-
-    
   }, [api]);
 
   return (

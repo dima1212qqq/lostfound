@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Search } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 const cities = [
   { name: "Москва" },
@@ -23,14 +21,8 @@ const cities = [
 
 export function CitySearch() {
   const [selectedCity, setSelectedCity] = React.useState(cities[0].name);
-  const [searchTerm, setSearchTerm] = React.useState("");
 
-  const handleSearch = () => {
-    // Здесь можно выполнить навигацию или отправку запроса с выбранным городом и поисковым запросом.
-    console.log("Поиск в городе:", selectedCity, "по запросу:", searchTerm);
-    // Например, вы можете использовать useRouter для перехода:
-    // router.push(`/search?city=${selectedCity}&query=${searchTerm}`);
-  };
+ 
 
   return (
     <div className="flex items-center gap-4">

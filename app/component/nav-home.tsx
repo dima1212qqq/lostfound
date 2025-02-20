@@ -1,38 +1,22 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { ChevronRight, Home, type LucideIcon } from "lucide-react";
+import {  Home, type LucideIcon } from "lucide-react";
 import {
   Collapsible,
-  CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
-interface Category {
-  id: number;
-  link: string;
-  name: string;
-  parent_id: number | null;
-  imageUrl?: string;
-  // Если сервер возвращает вложенный объект parent
-  parent?: {
-    id: number;
-    name: string;
-  };
-}
+
 
 export interface NavItem {
   title: string;
@@ -42,13 +26,10 @@ export interface NavItem {
   items: NavItem[];
 }
 
-const ImageIcon = ({ src, alt }: { src: string; alt: string }) => (
-  <img src={src} alt={alt} className="h-5 w-5 object-contain" />
-);
+
 
 
 export function NavHome() {
-  const [items, setItems] = useState<NavItem[]>([]);
 
   useEffect(() => {
     async function fetchCategories() {

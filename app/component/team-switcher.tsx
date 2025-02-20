@@ -29,7 +29,6 @@ export function TeamSwitcher({
     plan: string;
   }[];
 }) {
-  const [activeTeam, setActiveTeam] = React.useState(teams[0]);
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
@@ -39,7 +38,6 @@ export function TeamSwitcher({
     if (storedCity) {
       const found = teams.find((team) => team.name === storedCity);
       if (found) {
-        setActiveTeam(found);
         setValue(found.name);
       }
     }
@@ -49,7 +47,6 @@ export function TeamSwitcher({
     const newValue = currentValue === value ? "" : currentValue;
     setValue(newValue);
     setOpen(false);
-    setActiveTeam(team);
     // Сохраняем выбранный город в localStorage
     localStorage.setItem("selectedCity", team.name);
   };

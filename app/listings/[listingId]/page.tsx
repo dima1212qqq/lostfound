@@ -14,8 +14,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { LightboxCarousel } from "@/app/component/LightboxCarousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -40,7 +38,6 @@ export default function ListingDetailPage() {
 
   // Embla Carousel
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Управление слайдером
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);

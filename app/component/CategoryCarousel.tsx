@@ -6,7 +6,6 @@ import axios from "axios";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import ListingCard from "./ListingCard"; // Импортируем компонент карточки
-import { Label } from "@/components/ui/label";
 
 interface Listing {
   id: number;

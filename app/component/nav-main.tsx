@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { ChevronRight, type LucideIcon } from "lucide-react";
+import { JSX } from "react";
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -37,7 +39,7 @@ interface Category {
 export interface NavItem {
   title: string;
   url: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon | JSX.Element;
   isActive?: boolean;
   items: NavItem[];
 }
@@ -54,7 +56,8 @@ function transformCategories(categories: Category[]): NavItem[] {
     categoryMap[cat.id] = {
       title: cat.name,
       url: `/categories/${cat.link}/lost`,
-      icon: cat.imageUrl ? () => <ImageIcon src={cat.imageUrl} alt={cat.name} /> : undefined,
+      icon: cat.imageUrl ? <ImageIcon src={cat.imageUrl || ""} alt={cat.name} /> : undefined,
+
       items: [],
     };
   });
@@ -113,15 +116,21 @@ export function NavMain() {
             className="group/collapsible"
           >
             <SidebarMenuItem>
-              <CollapsibleTrigger asChild>
+            <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon className="h-5 w-5" />}
-                  <Link href={item.url}>
+                  {typeof item.icon === "function" ? (
+                    <item.icon className="h-5 w-5" />
+                  ) : (
+                    item.icon // Рендерим картинку, если это не LucideIcon
+                  )}
+                  <a href={item.url}>
                     <span>{item.title}</span>
-                  </Link>
+                  </a>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-100" />
                 </SidebarMenuButton>
+
               </CollapsibleTrigger>
+
               <CollapsibleContent>
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (

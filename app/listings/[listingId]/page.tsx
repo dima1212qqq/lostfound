@@ -47,12 +47,12 @@ export default function ListingDetailPage() {
     async function fetchData() {
       try {
         const listingResponse = await axios.get<Listing>(
-          `http://api.24lostandfound.ru/api/listings/${listingId}`
+          `https://api.24lostandfound.ru/api/listings/${listingId}`
         );
         setListing(listingResponse.data);
 
         const imagesResponse = await axios.get<ListingImage[]>(
-          `http://api.24lostandfound.ru/api/listings/${listingId}/images`
+          `https://api.24lostandfound.ru/api/listings/${listingId}/images`
         );
         setImages(imagesResponse.data);
       } catch (error) {

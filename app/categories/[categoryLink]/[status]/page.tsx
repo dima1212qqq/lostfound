@@ -48,7 +48,7 @@ export default function CategoryStatusPage() {
       const token = localStorage.getItem("token");
       try {
         const selectedCity = localStorage.getItem("selectedCity") || "";
-        const url = `http://api.24lostandfound.ru/api/categories/${categoryLink}/${status}?city=${encodeURIComponent(
+        const url = `https://api.24lostandfound.ru/api/categories/${categoryLink}/${status}?city=${encodeURIComponent(
           selectedCity
         )}&page=${page}&size=10`;
         const response = await axios.get(url, {

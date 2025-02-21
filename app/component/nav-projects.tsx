@@ -82,7 +82,7 @@ export function NavProjects() {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await axios.get("http://api.24lostandfound.ru/api/categories");
+        const response = await axios.get("https://api.24lostandfound.ru/api/categories");
         console.log("Полученные категории:", response.data);
         const categories: Category[] = response.data;
         const transformed = transformCategories(categories);

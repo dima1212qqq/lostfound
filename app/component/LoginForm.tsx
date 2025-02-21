@@ -47,9 +47,9 @@ export function LoginForm({
       let payload: any = { username, password };
 
       if (activeTab === "login") {
-        endpoint = "http://api.24lostandfound.ru/api/auth/login";
+        endpoint = "https://api.24lostandfound.ru/api/auth/login";
       } else if (activeTab === "register") {
-        endpoint = "http://api.24lostandfound.ru/api/auth/register";
+        endpoint = "https://api.24lostandfound.ru/api/auth/register";
         payload.email = email;
         payload.otp = otpValue;
       }
@@ -74,7 +74,7 @@ export function LoginForm({
   const sendOtp = async () => {
     try {
         console.log(email);
-        await axios.post("http://api.24lostandfound.ru/api/auth/send-otp", null, {
+        await axios.post("https://api.24lostandfound.ru/api/auth/send-otp", null, {
             params: { email }
         });
         setOtpSent(true);

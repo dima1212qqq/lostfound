@@ -20,7 +20,7 @@ export default function ListingsMasonryLayout() {
   useEffect(() => {
     async function fetchListings() {
       try {
-        const response = await axios.get("http://api.24lostandfound.ru/api/listings");
+        const response = await axios.get("https://api.24lostandfound.ru/api/listings");
         setListings(response.data);
       } catch (error) {
         console.error("Ошибка загрузки объявлений:", error);

@@ -29,7 +29,7 @@ export function CategoryCarousel({ title, categoryLink }: CategoryCarouselProps)
       setLoading(true);
       try {
         const selectedCity = localStorage.getItem("selectedCity") || "";
-        const url = `http://api.24lostandfound.ru/api/categories/${categoryLink}/${activeStatus}?city=${encodeURIComponent(selectedCity)}`;
+        const url = `https://api.24lostandfound.ru/api/categories/${categoryLink}/${activeStatus}?city=${encodeURIComponent(selectedCity)}`;
         const response = await axios.get(url);
         setListings(response.data);
       } catch (error) {

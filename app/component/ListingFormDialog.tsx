@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CategorySelector } from "./CategorySelector";
+import { Textarea } from "@/components/ui/textarea";
 
 interface Category {
   id: number;
@@ -155,7 +156,7 @@ export function ListingFormDialog({ type }: ListingFormDialogProps) {
             <Label htmlFor="description" className="text-right">
               Описание
             </Label>
-            <Input
+            <Textarea 
               id="description"
               placeholder="Введите описание"
               className="col-span-3"

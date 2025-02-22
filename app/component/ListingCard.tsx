@@ -44,7 +44,7 @@ export function ListingCard({ listing }: ListingCardProps) {
 
     return (
         <Link href={`/listings/${listing.id}`}>
-            <Card className="shadow-lg hover:shadow-2xl w-[300px] h-80 transition-shadow duration-300 cursor-pointer">
+            <Card className="shadow-lg hover:shadow-2xl w-[300px] h-96 transition-shadow duration-300 cursor-pointer">
                 <CardContent className="flex flex-col">
                     {imageUrl && (
                         <div className="w-full overflow-hidden rounded-t aspect-[3/2]">
